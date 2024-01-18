@@ -1,0 +1,18 @@
+[package]
+name = "websocket-chat"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio-tungstenite = { version = "0.21.0" }
+futures-channel = { version = "0.3.30" }
+futures-util = { version = "0.3.30" }
+tokio = { version = "1.35.1", features = ["full"] }
+anyhow = { version = "1.0.79" }
+tracing = { version = "0.1.40" }
+tracing-subscriber = { version = "0.3.1", features = ["fmt", "ansi", "env-filter", "tracing-log"] }
+parking_lot = { version = "0.12.1" }
+chrono = { version = "0.4.31" }
+uuid = { version = "1.6.1", features = ["v4"] }

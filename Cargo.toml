@@ -14,5 +14,7 @@ anyhow = { version = "1.0.79" }
 tracing = { version = "0.1.40" }
 tracing-subscriber = { version = "0.3.1", features = ["fmt", "ansi", "env-filter", "tracing-log"] }
 parking_lot = { version = "0.12.1" }
-chrono = { version = "0.4.31" }
-uuid = { version = "1.6.1", features = ["v4"] }
+chrono = { version = "0.4.31", features = ["serde"] }
+uuid = { version = "1.6.1", features = ["v4", "serde"] }
+serde = { version = "1.0.195", features = ["derive"] }
+serde_json = { version = "1.0.111" }

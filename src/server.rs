@@ -18,16 +18,21 @@ impl Server {
         }
     }
 
-    pub fn broadcast(&mut self, addr: SocketAddr, message: &str) -> Result<()> {
-        let other_clients = self
-            .clients
-            .iter()
-            .filter(|(client_addr, _)| client_addr != &&addr)
-            .map(|(_, ws_sink)| ws_sink);
-
-        for c in other_clients {
-            c.send(Text(message.to_owned()))?;
+    pub fn broadcast_except_self(&mut self, sender: SocketAddr, message: &str) -> Result<()> {
+        for c in self.clients.iter_mut() {
+            if *c.0 != sender {
+                c.1.send(Text(message.to_owned()))?;
+            }
         }
+
+        Ok(())
+    }
+
+    pub fn broadcast_all(&mut self, sender: SocketAddr, message: &str) -> Result<()> {
+        for c in self.clients.iter_mut() {
+            c.1.send(Text(message.to_owned()))?;
+        }
+
         Ok(())
     }
 }

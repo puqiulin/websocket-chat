@@ -11,7 +11,6 @@ type Rx = UnboundedReceiver<Message>;
 
 pub struct Client {
     pub uuid: Uuid,
-    pub name: String,
     pub read: SplitStream<WsStream>,
     pub write: SplitSink<WsStream, Message>,
     pub rx: Rx,
@@ -22,8 +21,7 @@ impl Client {
         let (write, read) = ws_stream.split();
         let uuid = Uuid::new_v4();
         Client {
-            uuid: Uuid::new_v4(),
-            name: uuid.to_string(),
+            uuid,
             read,
             write,
             rx,

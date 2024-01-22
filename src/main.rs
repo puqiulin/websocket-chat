@@ -17,7 +17,7 @@ use tracing::{error, info};
 async fn main() -> Result<()> {
     tracing_subscriber::fmt().init();
 
-    let default_addr = "127.0.0.1:8888".to_owned();
+    let default_addr = "127.0.0.1:9595".to_owned();
     let addr = env::args().nth(1).unwrap_or_else(|| default_addr);
     let tcp_server = TcpListener::bind(&addr).await?;
     let server = Arc::new(Mutex::new(Server::new()));

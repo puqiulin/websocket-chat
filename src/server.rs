@@ -28,7 +28,7 @@ impl Server {
         Ok(())
     }
 
-    pub fn broadcast_all(&mut self, sender: SocketAddr, message: &str) -> Result<()> {
+    pub fn broadcast_all(&mut self, message: &str) -> Result<()> {
         for c in self.clients.iter_mut() {
             c.1.send(Text(message.to_owned()))?;
         }

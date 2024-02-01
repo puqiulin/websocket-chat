@@ -1,4 +1,5 @@
-# Simple websocket chat server based on [tokio_tungstenite](https://github.com/snapview/tokio-tungstenite/tree/master)
+# Websocket chat server
+> Based on [tokio_tungstenite](https://github.com/snapview/tokio-tungstenite/tree/master)
 
 ## Run server
 
